@@ -1,9 +1,9 @@
 <div align="center">
   <h1>claude-curated</h1>
-  <p><strong>8 original Claude Code skills built from real-world usage — security scanning, adversarial review, memory lifecycle, adaptive summarization, and more.</strong></p>
+  <p><strong>10 original Claude Code skills built from real-world usage — security scanning, adversarial review, multi-model debate, dev-server sync, and more.</strong></p>
 
   ![Claude Code](https://img.shields.io/badge/Claude_Code-skills-blueviolet)
-  ![Skills](https://img.shields.io/badge/skills-8-blue)
+  ![Skills](https://img.shields.io/badge/skills-10-blue)
   ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
   ![License](https://img.shields.io/badge/license-MIT-green)
 </div>
@@ -24,6 +24,8 @@ Every skill was built from real production usage — not written as demos.
 | `skill-profile` | **Skill Profile** | Skill profile switching |
 | `memory-keeper` | **Memory Keeper** | Memory lifecycle management |
 | `skill-guard` | **Skill Guard** | Security scanner + health auditor (60 patterns, 14 categories) |
+| `rd-council` | **R&D Council** | 6-model debate with cross-examination and consensus memo |
+| `single-source` | **Single Source** | Dev machine to server sync via GitHub — no rsync, no scp |
 
 ## Where These Came From
 
@@ -36,6 +38,8 @@ Each skill was extracted from a real problem:
 - **skill-profile** — Hit the 15K YAML limit with 30+ skills. Needed profile switching to load only relevant skills per task.
 - **memory-keeper** — Memory files went stale within weeks. Needed automated lifecycle: mine, prune, promote.
 - **skill-guard** — Installed a community skill that had obfuscated code. Built a scanner before it happened again.
+- **rd-council** — Asking one model gives one perspective. Built a 6-model debate system where models cross-examine each other's arguments and produce a consensus memo.
+- **single-source** — Edited code on laptop, deployed to server, forgot to push. Server had stale code for 3 days. Built a git-only sync workflow that makes this impossible.
 
 ## Who This Is For
 
@@ -101,6 +105,28 @@ Five jobs in one skill:
 
 Includes a capacity monitoring table to keep memory, rules, and topic files within healthy limits.
 
+### R&D Council — Multi-Model Debate
+
+6 AI models debate a topic across 3 rounds, cross-examine each other, then produce an executive consensus memo.
+
+**How it works:**
+1. **Round 1** — Each model answers independently (parallel, ~10s)
+2. **Round 2** — Each model reads all others' answers, identifies strongest/weakest arguments, refines position
+3. **Round 3** — Final positions with "I changed my mind because..." or "I maintain because..."
+4. **Synthesis** — Judge model produces a memo with consensus, disagreements, action items, and contrarian insights
+
+Supports quick mode (3 models, 2 rounds) and full council (6 models, 3 rounds). Model roster is configurable via env vars.
+
+### Single Source — Dev Machine to Server Sync
+
+Git-only sync between your dev machine and remote server. No rsync. No scp. Git is the bus.
+
+Includes:
+- Setup templates for Mac+Cloud, Mac+AWS, Laptop+Desktop, Local+Docker
+- Auto-pull cron for the server
+- Conflict resolution guide
+- Safety rules (never scp, never dual-run, always pull before push)
+
 ## Project Structure
 
 ```
@@ -113,10 +139,12 @@ claude-curated/
 ├── claude-md-trim/         # CLAUDE.md rule optimizer
 ├── skill-profile/          # Profile switching (all/coding/outreach/minimal)
 ├── memory-keeper/          # Memory lifecycle management
-└── skill-guard/            # Security scanner + health auditor
-    ├── scripts/            # Python scanners + fswatch daemon
-    ├── references/         # Threat model
-    └── skills/             # Skill cleaning sub-skill
+├── skill-guard/            # Security scanner + health auditor
+│   ├── scripts/            # Python scanners + fswatch daemon
+│   ├── references/         # Threat model
+│   └── skills/             # Skill cleaning sub-skill
+├── rd-council/             # 6-model debate with cross-examination
+└── single-source/          # Dev machine ↔ server sync via GitHub
 ```
 
 ## Contributing
