@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# claude-curated-fresh — https://github.com/nardovibecoding/claude-curated-fresh
+# Copyright (c) 2026 nardovibecoding. Licensed under Apache-2.0.
 """
 Skill Rescan — detect changed skills and re-audit them.
 

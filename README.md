@@ -5,7 +5,7 @@
   ![Claude Code](https://img.shields.io/badge/Claude_Code-skills-blueviolet)
   ![Skills](https://img.shields.io/badge/skills-10-blue)
   ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
-  ![License](https://img.shields.io/badge/license-MIT-green)
+  ![License](https://img.shields.io/badge/license-Apache--2.0-red)
 </div>
 
 ---
@@ -153,4 +153,4 @@ Open an issue or PR. Each skill is self-contained in its own directory with a `S
 
 ## License
 
-MIT — see [LICENSE](LICENSE)
+Apache-2.0 — see [LICENSE](LICENSE)
