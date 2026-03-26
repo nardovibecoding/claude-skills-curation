@@ -14,18 +14,18 @@ Every skill was built from real production usage — not written as demos.
 
 ## Skills
 
-| Folder | Name | What it does |
-|--------|------|-------------|
-| `red-alert` | **Red Alert** | Adversarial red team — finds security holes, logic bugs |
-| `dependency-tracker` | **Dependency Tracker** | Finds stale references after renames/moves |
-| `tldr-eli5` | **TLDR+ELI5** | Compression mode + simple explanation mode |
-| `skill-extractor` | **Skill Extractor** | Evaluates community skills before install |
-| `claude-md-trim` | **Claude MD Trim** | CLAUDE.md rule optimizer |
-| `skill-profile` | **Skill Profile** | Skill profile switching |
-| `memory-keeper` | **Memory Keeper** | Memory lifecycle management |
-| `skill-guard` | **Skill Guard** | Security scanner + health auditor (60 patterns, 14 categories) |
-| `research-council` | **Research Council** | 6 free LLMs debate, cross-examine, and deliver a consensus memo — $0/decision |
-| `single-source-of-truth` | **Single Source of Truth** | Dev machine to server sync via GitHub — no rsync, no scp |
+| Category | Skill | What it does |
+|----------|-------|-------------|
+| Security | **Red Alert** | Adversarial red team — finds security holes, logic bugs |
+| Security | **Skill Guard** | Security scanner + health auditor (60 patterns, 14 categories) |
+| Maintenance | **Memory Keeper** | Memory lifecycle management |
+| Maintenance | **Claude MD Trim** | CLAUDE.md rule optimizer |
+| Maintenance | **Skill Profile** | Skill profile switching (all/coding/outreach/minimal) |
+| Workflow | **Dependency Tracker** | Finds stale references after renames/moves |
+| Workflow | **Research Council** | 6 free LLMs debate, cross-examine, deliver consensus — $0/decision |
+| Workflow | **Single Source of Truth** | Dev machine to server sync via GitHub — no rsync, no scp |
+| Discovery | **Skill Extractor** | Evaluates community skills before install |
+| Discovery | **TLDR+ELI5** | Adaptive summarization + simple explanation mode |
 
 ## Where These Came From
 
@@ -53,12 +53,22 @@ Each skill was extracted from a real problem:
 
 ## Install
 
+### As a plugin (recommended)
 ```bash
-# Install one skill
-cp -r claude-curated/red-alert ~/.claude/skills/
+/plugin marketplace add nardovibecoding/claude-curated
+/plugin install claude-curated
+```
 
-# Install all
-for skill in claude-curated/*/; do cp -r "$skill" ~/.claude/skills/; done
+### Manual (one skill at a time)
+```bash
+git clone https://github.com/nardovibecoding/claude-curated.git
+cp -r claude-curated/skills/security/red-alert ~/.claude/skills/
+```
+
+### Manual (all skills)
+```bash
+git clone https://github.com/nardovibecoding/claude-curated.git
+find claude-curated/skills -mindepth 2 -maxdepth 2 -type d -exec cp -r {} ~/.claude/skills/ \;
 ```
 
 Each skill works independently — install only what you need. Skills activate automatically when Claude Code detects matching trigger phrases.
@@ -131,20 +141,27 @@ Includes:
 
 ```
 claude-curated/
-├── red-alert/              # Adversarial red team review
-├── dependency-tracker/     # Stale reference finder
-│   └── references/         # Anti-patterns, dependency chains
-├── tldr-eli5/              # Adaptive summarization + ELI5
-├── skill-extractor/        # Community skill evaluator
-├── claude-md-trim/         # CLAUDE.md rule optimizer
-├── skill-profile/          # Profile switching (all/coding/outreach/minimal)
-├── memory-keeper/          # Memory lifecycle management
-├── skill-guard/            # Security scanner + health auditor
-│   ├── scripts/            # Python scanners + fswatch daemon
-│   ├── references/         # Threat model
-│   └── skills/             # Skill cleaning sub-skill
-├── research-council/       # 6-model debate with cross-examination
-└── single-source-of-truth/ # Dev machine ↔ server sync via GitHub
+├── .claude-plugin/
+│   └── plugin.json              # Plugin manifest
+├── skills/
+│   ├── security/
+│   │   ├── red-alert/           # Adversarial red team review
+│   │   └── skill-guard/         # Security scanner + health auditor
+│   │       ├── scripts/         # Python scanners + fswatch daemon
+│   │       └── references/      # Threat model
+│   ├── maintenance/
+│   │   ├── memory-keeper/       # Memory lifecycle management
+│   │   ├── claude-md-trim/      # CLAUDE.md rule optimizer
+│   │   └── skill-profile/       # Profile switching
+│   ├── workflow/
+│   │   ├── dependency-tracker/  # Stale reference finder
+│   │   ├── research-council/    # 6-model debate ($0/decision)
+│   │   └── single-source-of-truth/  # Dev ↔ server sync
+│   └── discovery/
+│       ├── skill-extractor/     # Community skill evaluator
+│       └── tldr-eli5/           # Adaptive summarization + ELI5
+├── README.md
+└── LICENSE
 ```
 
 ## Contributing
