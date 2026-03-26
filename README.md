@@ -24,8 +24,8 @@ Every skill was built from real production usage — not written as demos.
 | `skill-profile` | **Skill Profile** | Skill profile switching |
 | `memory-keeper` | **Memory Keeper** | Memory lifecycle management |
 | `skill-guard` | **Skill Guard** | Security scanner + health auditor (60 patterns, 14 categories) |
-| `rd-council` | **R&D Council** | 6 free LLMs debate, cross-examine, and deliver a consensus memo — $0/decision |
-| `single-source` | **Single Source** | Dev machine to server sync via GitHub — no rsync, no scp |
+| `research-council` | **Research Council** | 6 free LLMs debate, cross-examine, and deliver a consensus memo — $0/decision |
+| `single-source-of-truth` | **Single Source of Truth** | Dev machine to server sync via GitHub — no rsync, no scp |
 
 ## Where These Came From
 
@@ -38,8 +38,8 @@ Each skill was extracted from a real problem:
 - **skill-profile** — Hit the 15K YAML limit with 30+ skills. Needed profile switching to load only relevant skills per task.
 - **memory-keeper** — Memory files went stale within weeks. Needed automated lifecycle: mine, prune, promote.
 - **skill-guard** — Installed a community skill that had obfuscated code. Built a scanner before it happened again.
-- **rd-council** — LLMs are sycophantic. They agree with you. Built a council of 6 models that cross-examine each other — they disagree, change their minds, and produce answers none of them would give alone. Cost per decision: $0.
-- **single-source** — Edited code on laptop, deployed to server, forgot to push. Server had stale code for 3 days. Built a git-only sync workflow that makes this impossible.
+- **research-council** — LLMs are sycophantic. They agree with you. Built a council of 6 models that cross-examine each other — they disagree, change their minds, and produce answers none of them would give alone. Cost per decision: $0.
+- **single-source-of-truth** — Edited code on laptop, deployed to server, forgot to push. Server had stale code for 3 days. Built a git-only sync workflow that makes this impossible.
 
 ## Who This Is For
 
@@ -105,7 +105,7 @@ Five jobs in one skill:
 
 Includes a capacity monitoring table to keep memory, rules, and topic files within healthy limits.
 
-### R&D Council — Multi-Model Debate
+### Research Council — Multi-Model Debate
 
 6 AI models debate a topic across 3 rounds, cross-examine each other, then produce an executive consensus memo.
 
@@ -117,7 +117,7 @@ Includes a capacity monitoring table to keep memory, rules, and topic files with
 
 Supports quick mode (3 models, 2 rounds) and full council (6 models, 3 rounds). Model roster is configurable via env vars.
 
-### Single Source — Dev Machine to Server Sync
+### Single Source of Truth — Dev Machine to Server Sync
 
 Git-only sync between your dev machine and remote server. No rsync. No scp. Git is the bus.
 
@@ -143,8 +143,8 @@ claude-curated/
 │   ├── scripts/            # Python scanners + fswatch daemon
 │   ├── references/         # Threat model
 │   └── skills/             # Skill cleaning sub-skill
-├── rd-council/             # 6-model debate with cross-examination
-└── single-source/          # Dev machine ↔ server sync via GitHub
+├── research-council/       # 6-model debate with cross-examination
+└── single-source-of-truth/ # Dev machine ↔ server sync via GitHub
 ```
 
 ## Contributing

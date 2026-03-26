@@ -1,5 +1,5 @@
 ---
-name: rd-council
+name: research-council
 description: |
   6-model R&D Council debate — multi-round argument, cross-examination, consensus memo.
   Triggers: "/debate", "council", "R&D meeting", "model debate", "6 models discuss".
@@ -8,7 +8,7 @@ description: |
 user-invocable: true
 ---
 
-# R&D Council — Multi-Model Debate
+# Research Council — Multi-Model Debate
 
 6 AI models autonomously debate a topic across multiple rounds, cross-examine each
 other's arguments, then produce an executive memo with consensus and action items.

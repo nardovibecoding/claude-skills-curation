@@ -1,5 +1,5 @@
 ---
-name: single-source
+name: single-source-of-truth
 description: |
   Dev machine to server sync via GitHub — deploy, pull, push code/config/state.
   Triggers: "deploy", "push to server", "sync", "single source of truth".
