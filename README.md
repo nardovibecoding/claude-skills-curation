@@ -12,6 +12,8 @@ claude plugins install nardovibecoding/claude-skills-curation
 [![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=for-the-badge)](#)
 [![License](https://img.shields.io/badge/License-AGPL--3.0-red?style=for-the-badge)](LICENSE)
 
+<img src="demo.gif" alt="6-model debate, adversarial critic, and context budget audit" width="700">
+
 </div>
 
 ---
